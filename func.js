@@ -82,19 +82,30 @@ function displayData(availabilityData, categoryIndex) {
     var text = "<table border='1' frame='void' rules='rows' class='productTable'><tr><th>Name</th><th>Color</th><th>Price</th><th>Manufacturer</th><th>Availability</th></tr>"
     for (n = 0; n < products.length; n++) {
         console.log("ID found");
+        listHTML.innerHTML = "Getting products: " + (n + 1) + "/" + products.length;
         let findAvailableID = availabilityData.filter(x => x.id.toString() === products[n].id.toString().toUpperCase()); //The availability data for the one specific ID of the product
         if (findAvailableID.length > 0) {
             text += "<tr>";
             text += "<td>" + products[n].name.toString() + "</td>";
-            text += "<td>" + products[n].color.toString() + "</td>";
+            if (products[n].color.length == 1) {
+                text += "<td>" + products[n].color.toString().charAt(0).toUpperCase() + products[n].color.toString().slice(1) + "</td>";
+            } else {
+                //Käytä string.replace()
+                text += "<td>"
+                for (x in products[n].color) {
+                    text += products[n].color[x].toString().charAt(0).toUpperCase() + products[n].color.toString().slice(1);
+                }
+                text += "</td>"
+            }
+
             text += "<td>" + products[n].price.toString() + "</td>";
             text += "<td>" + products[n].manufacturer.toString().charAt(0).toUpperCase() + products[n].manufacturer.toString().slice(1) + "</td>";
             if (findAvailableID[0].DATAPAYLOAD.toString() === "<AVAILABILITY>\n  <CODE>200</CODE>\n  <INSTOCKVALUE>INSTOCK</INSTOCKVALUE>\n</AVAILABILITY>") {
-                text += '<td class="greenDot"></td>';
+                text += '<td class="greenCell">Available</td>';
             } else if (findAvailableID[0].DATAPAYLOAD.toString() === "<AVAILABILITY>\n  <CODE>200</CODE>\n  <INSTOCKVALUE>LESSTHAN10</INSTOCKVALUE>\n</AVAILABILITY>") {
-                text += '<td class="yellowDot"></td>';
+                text += '<td class="yellowCell">Less than 10</td>';
             } else if (findAvailableID[0].DATAPAYLOAD.toString() === "<AVAILABILITY>\n  <CODE>200</CODE>\n  <INSTOCKVALUE>OUTOFSTOCK</INSTOCKVALUE>\n</AVAILABILITY>") {
-                text += '<td class="redDot"></td>';
+                text += '<td class="redCell">Unavailable</td>';
             } else {
                 text += "<td>No data</td>";
             }

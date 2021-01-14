@@ -48,7 +48,7 @@ template { display: none; }
 html {
     height: 100vh;
     font-size: 1.3rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 body {
     margin: 0;
@@ -57,7 +57,7 @@ body {
     width: 100%;
     font-size: 1.3rem;
     position: relative;
-    background-color: aliceblue;
+    background-color: rgb(230, 230, 230);
     /*background-image: linear-gradient(to right, rgb(227, 121, 69), rgb(244, 209, 89));*/
 }
 main {
@@ -104,6 +104,7 @@ nav {
     white-space: nowrap;
     text-align: center;
     text-decoration: none;
+    padding: 5px;
 }
 .nav a:hover {
     color: #cecece;
@@ -139,11 +140,13 @@ footer {
     border-collapse: collapse;
     border: 0;
 }
-.productTable td {
+.productTable td, .productTable th {
     border: 1px solid rgb(150, 150, 150);
     border-top: 0;
     border-right: 0;
     border-left: 0;
+    padding: 5px;
+    margin: 5px;
 }
 .productTable tr:first-child {
     border-bottom: 1;
@@ -152,30 +155,26 @@ footer {
     border-bottom: 0;
 }
 
+.productTable {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+    text-align: center;
+}
 
-.greenDot {
-    height: 25px;
-    width: 25px;
+
+.greenCell {
     background-color: green;
-    border-radius: 50%;
-    display: inline-block;
-    border: 0;
+    border-radius: 20px;  
 }
-.yellowDot {
-    height: 25px;
-    width: 25px;
+.yellowCell {
     background-color: yellow;
-    border-radius: 50%;
-    display: inline-block;
-    border: 0;
+    border-radius: 20px;
 }
-.redDot {
-    height: 25px;
-    width: 25px;
+.redCell {
     background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-    border: 0;
+    border-radius: 20px;
 }
 
 @media (min-width: 320px) {
