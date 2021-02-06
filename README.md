@@ -20,6 +20,11 @@ How the app works:
     
     As allowed in the assignment, the page can be a bit slow at first load when it fetches all the data
     but after that, changing categories and pages is nice and fast.
+    
+Known issues:
+
+    The app can at times receive a 403: Forbidden status code when trying to load the page.
+    This error often disappears after some time and reappears randomly.
 
 URL
     
