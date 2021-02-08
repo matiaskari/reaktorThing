@@ -17,14 +17,6 @@ How the app works:
     Also based on the selection, the app looks at the size of the chosen array and generates the right amount of options
     in the page selection dropdown menu at the bottom of the screen.
     When you change the page, it will generate a brand new table of products, starting from the appropriate product.
-    
-    As allowed in the assignment, the page can be a bit slow at first load when it fetches all the data
-    but after that, changing categories and pages is nice and fast.
-    
-Known issues:
-
-    The app can at times receive a 403: Forbidden status code when trying to load the page.
-    This error often disappears after some time and reappears randomly.
 
 URL
     
